@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 
 type SeoProps = {
   description?: string;
@@ -15,22 +15,13 @@ export const Seo: React.FC<SeoProps> = ({
   meta = [],
   title,
 }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    author,
+  } = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription = description || defaultDescription;
 
   return (
     <Helmet
@@ -62,7 +53,7 @@ export const Seo: React.FC<SeoProps> = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: author || ``,
         },
         {
           name: `twitter:title`,
