@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Header } from "./header";
-import "./layout.css";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
+import CustomThemeProvider from "../../theme/custom-theme-provider";
 
 export const Layout = ({ children }) => {
   const { title } = useSiteMetadata();
 
   return (
-    <>
+    <CustomThemeProvider>
       <Header siteTitle={title || `Title`} />
       <div
         style={{
@@ -27,6 +27,6 @@ export const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>
-    </>
+    </CustomThemeProvider>
   );
 };
