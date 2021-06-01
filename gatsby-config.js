@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -12,6 +14,16 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        components: path.join(__dirname, "src/components"),
+        hooks: path.join(__dirname, "src/hooks"),
+        images: path.join(__dirname, "src/images"),
+        pages: path.join(__dirname, "src/pages"),
+        theme: path.join(__dirname, "src/theme"),
       },
     },
     `gatsby-transformer-sharp`,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { Layout, Seo } from "../components/layout";
+import { Layout, Seo } from "components/layout";
 import { Typography } from "@material-ui/core";
 
 const IndexPage = () => (

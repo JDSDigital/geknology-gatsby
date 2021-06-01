@@ -1,5 +1,4 @@
 {
   "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "quoteProps": "consistent"
+  "bracketSpacing": true
 }

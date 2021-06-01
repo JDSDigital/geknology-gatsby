@@ -1,21 +1,20 @@
 import * as React from "react";
 import { Header } from "./header";
-import { useSiteMetadata } from "../../hooks/useSiteMetadata";
-import CustomThemeProvider from "../../theme/custom-theme-provider";
+import { useSiteMetadata } from "hooks/useSiteMetadata";
+import CustomThemeProvider from "theme/custom-theme-provider";
+import { Container } from "@material-ui/core";
 
-export const Layout = ({ children }) => {
+type Props = {
+  children: any;
+};
+
+export const Layout: React.FC<Props> = ({ children }) => {
   const { title } = useSiteMetadata();
 
   return (
     <CustomThemeProvider>
       <Header siteTitle={title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Container>
         <main>{children}</main>
         <footer
           style={{
@@ -26,7 +25,7 @@ export const Layout = ({ children }) => {
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
-      </div>
+      </Container>
     </CustomThemeProvider>
   );
 };
