@@ -40,6 +40,8 @@ export const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
             alt={siteTitle}
             width={300}
             formats={["auto", "webp", "avif"]}
+            placeholder="blurred"
+            backgroundColor="#fafafa"
           />
         </Link>
 

@@ -12,6 +12,9 @@ const CustomThemeProvider: React.FC = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Global
         styles={css`
+          body {
+            margin-bottom: 0;
+          }
           a {
             text-decoration: none;
           }
