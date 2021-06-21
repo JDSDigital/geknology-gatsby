@@ -21,6 +21,11 @@ const CustomThemeProvider: React.FC = ({ children }) => {
           .white {
             color: white;
           }
+          #gatsby-focus-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
         `}
       />
       <CssBaseline />

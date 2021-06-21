@@ -34,7 +34,6 @@ export const Footer = () => {
 const useStyles = makeStyles({
   footer: {
     display: "flex",
-    alignSelf: "end",
     paddingTop: "1rem",
     paddingBottom: "1rem",
     boxShadow: "3px 3px 5px rgba(0,0,0,0.3)",
