@@ -1,26 +1,40 @@
 import * as React from "react";
-import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Layout, Seo } from "components/layout";
-import { Container, Typography } from "@material-ui/core";
+import { graphql } from "gatsby";
+import { useStaticQuery } from "gatsby";
+import { makeStyles } from "@material-ui/core";
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <Container>
-      <Typography variant="h1">Hi people</Typography>
-      <Typography>Welcome to your new Gatsby site.</Typography>
-      <Typography>Now go build something great.</Typography>
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        width={300}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt="A Gatsby astronaut"
-        style={{ marginBottom: `1.45rem` }}
+const IndexPage: React.FC = () => {
+  const classes = useStyles();
+  const { image } = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "mac-white.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  `);
+
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <GatsbyImage
+        image={image.childImageSharp.gatsbyImageData}
+        alt=""
+        className={classes.banner}
       />
-    </Container>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default IndexPage;
+
+const useStyles = makeStyles({
+  banner: {
+    height: "500px",
+    objectFit: "cover",
+    backgroundPosition: "bottom",
+  },
+});

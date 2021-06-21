@@ -109,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
 
 const useStyles = makeStyles(theme => ({
   header: {
-    marginBottom: `1.45rem`,
+    zIndex: 100,
     boxShadow: "3px 3px 5px rgba(0,0,0,0.3)",
   },
   container: {
