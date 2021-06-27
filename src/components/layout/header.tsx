@@ -11,10 +11,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { StaticImage } from "gatsby-plugin-image";
-
-type HeaderProps = {
-  siteTitle: string;
-};
+import { useSiteMetadata } from "hooks/useSiteMetadata";
 
 const linkList = [
   { to: "/", text: "Inicio" },
@@ -22,8 +19,9 @@ const linkList = [
   { to: "/contact", text: "Contacto" },
 ];
 
-export const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
+export const Header: React.FC = () => {
   const classes = useStyles();
+  const { title } = useSiteMetadata();
 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
@@ -37,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
         <Link to="/">
           <StaticImage
             src="../../images/logo.png"
-            alt={siteTitle}
+            alt={title}
             width={300}
             formats={["auto", "webp", "avif"]}
             placeholder="blurred"
@@ -78,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
                 <Link to="/">
                   <StaticImage
                     src="../../images/logo.png"
-                    alt={siteTitle}
+                    alt={title}
                     width={250}
                     formats={["auto", "webp", "avif"]}
                   />

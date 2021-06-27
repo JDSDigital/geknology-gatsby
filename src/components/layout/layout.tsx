@@ -1,21 +1,21 @@
 import * as React from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import { useSiteMetadata } from "hooks/useSiteMetadata";
 import CustomThemeProvider from "theme/custom-theme-provider";
 import { makeStyles } from "@material-ui/core";
+import { Seo } from "./seo";
 
-type Props = {
-  children: any;
+type LayoutProps = {
+  title: string;
 };
 
-export const Layout: React.FC<Props> = ({ children }) => {
-  const { title } = useSiteMetadata();
+export const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   const classes = useStyles();
 
   return (
     <CustomThemeProvider>
-      <Header siteTitle={title || `Title`} />
+      <Seo title={title} />
+      <Header />
       <main className={classes.main}>{children}</main>
       <Footer />
     </CustomThemeProvider>
