@@ -1,6 +1,4 @@
-import { Container, makeStyles, styled } from "@material-ui/core";
-
-export const useBannerStyles = makeStyles({});
+import { styled } from "@material-ui/core";
 
 export const BannerRoot = styled("div")({
   backgroundColor: "black",
@@ -16,7 +14,7 @@ export const BannerRoot = styled("div")({
   },
 });
 
-export const BannerContainer = styled("div")({
+export const BannerContainer = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "flex-end",
   position: "absolute",
@@ -25,5 +23,5 @@ export const BannerContainer = styled("div")({
   width: "100%",
   height: "100%",
   color: "white",
-  padding: "48px 0",
-});
+  padding: theme.spacing(6, 0),
+}));

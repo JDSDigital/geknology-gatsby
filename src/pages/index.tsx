@@ -4,6 +4,7 @@ import { graphql, PageProps } from "gatsby";
 import { Banner } from "components/banner";
 import { Typography } from "@material-ui/core";
 import { ImageQueryData } from "models/images";
+import { IconContainers } from "components/sections/IconContainers";
 
 const IndexPage: React.FC<PageProps<ImageQueryData>> = ({ data }) => {
   return (
@@ -11,6 +12,7 @@ const IndexPage: React.FC<PageProps<ImageQueryData>> = ({ data }) => {
       <Banner image={data.image}>
         <Typography variant="h1">Geknology Techno Services</Typography>
       </Banner>
+      <IconContainers />
     </Layout>
   );
 };
